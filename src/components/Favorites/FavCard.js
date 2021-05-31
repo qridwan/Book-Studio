@@ -4,7 +4,7 @@ import { Button, Card, Col } from "react-bootstrap";
 const FavCard = ({ info, removeFromFav }) => {
   const { img, name, price, favId } = info;
   return (
-    <Col md={4} className="mb-3">
+    <Col md={3} className="mb-3">
       <Card style={{ width: "100%" }}>
         <Card.Img variant="top" src={img} />
         <Card.Body>

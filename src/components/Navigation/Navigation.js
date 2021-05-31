@@ -19,33 +19,35 @@ const StyledBadge = withStyles((theme) => ({
 const Navigation = ({ favorites }) => {
   return (
     <div className="container">
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">BOOK.STUDIO</Navbar.Brand>
+      <Navbar expand="lg">
+        <Navbar.Brand>
+          <NavLink className="no-underline text-dark fw-bolder" to="/home">
+            BOOK.STUDIO
+          </NavLink>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="">
-          <Nav className="ml-auto">
+          <Nav className="m-auto">
             <Nav.Link>
-              <NavLink to="/home">
+              <NavLink className="no-underline h6" to="/home">
                 <IconButton aria-label="home">
-                  <StyledBadge
-                    color="secondary"
-                  >
-                    Home <HomeIcon className="text-dark" />{" "}
+                  <StyledBadge color="secondary">
+                    Home <HomeIcon className="text-dark" />
                   </StyledBadge>
                 </IconButton>
-              </NavLink>{" "}
+              </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/favorites">
+              <NavLink className="no-underline h6" to="/home/favorites">
                 <IconButton aria-label="cart">
                   <StyledBadge
                     badgeContent={favorites.length}
                     color="secondary"
                   >
-                    favorites <FavoriteIcon className="text-dark" />
+                    Favorites <FavoriteIcon className="text-dark" />
                   </StyledBadge>
                 </IconButton>
-              </NavLink>{" "}
+              </NavLink>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
