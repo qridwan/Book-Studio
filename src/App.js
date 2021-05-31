@@ -8,6 +8,7 @@ import {
 import Home from './components/Home/Home';
 import Navigation from './components/Navigation/Navigation';
 import Details from './components/Details/Details';
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
   return (
@@ -19,10 +20,13 @@ function App() {
           <Route exact path="/home">
             <Home />
           </Route>
+          <Route exact path="/favorites">
+            <Favorites />
+          </Route>
           <Route path="/home/:id/detail">
             <Details />
           </Route>
-          <Route exact="*" path="/">
+          <Route exact path="/">
             <Home />
           </Route>
         </Switch>

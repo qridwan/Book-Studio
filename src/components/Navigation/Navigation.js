@@ -1,18 +1,22 @@
-import { IconButton, withStyles } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import React from "react";
-import { Badge, Nav, Navbar } from "react-bootstrap";
+import Badge from "@material-ui/core/Badge";
+import { withStyles } from "@material-ui/core/styles";
+import { Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import HomeIcon from "@material-ui/icons/Home";
+import { connect } from "react-redux";
 
 const StyledBadge = withStyles((theme) => ({
-    badge: {
-      right: -3,
-      top: 13,
-      border: `2px solid ${theme.palette.background.paper}`,
-      padding: '0 4px',
-    },
-  }))(Badge);
-const Navigation = () => {
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}))(Badge);
+const Navigation = ({ favorites }) => {
   return (
     <div className="container">
       <Navbar bg="light" expand="lg">
@@ -21,16 +25,28 @@ const Navigation = () => {
         <Navbar.Collapse id="basic-navbar-nav" className="">
           <Nav className="ml-auto">
             <Nav.Link>
-              <NavLink to="/home">Home</NavLink>{" "}
+              <NavLink to="/home">
+                <IconButton aria-label="home">
+                  <StyledBadge
+                    color="secondary"
+                  >
+                    Home <HomeIcon className="text-dark" />{" "}
+                  </StyledBadge>
+                </IconButton>
+              </NavLink>{" "}
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/favorites">favorites</NavLink>{" "}
+              <NavLink to="/favorites">
+                <IconButton aria-label="cart">
+                  <StyledBadge
+                    badgeContent={favorites.length}
+                    color="secondary"
+                  >
+                    favorites <FavoriteIcon className="text-dark" />
+                  </StyledBadge>
+                </IconButton>
+              </NavLink>{" "}
             </Nav.Link>
-            <IconButton aria-label="cart">
-              <StyledBadge badgeContent={4} color="secondary">
-                <ShoppingCartIcon />
-              </StyledBadge>
-            </IconButton>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -38,4 +54,6 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(Navigation);

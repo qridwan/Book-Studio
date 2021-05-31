@@ -46,10 +46,10 @@ export const FavReducers = (state = initialState, action) => {
       };
     case REMOVE_FROM_FAV:
       //   const id = action.id;
-      const remainingFav = state.fav.filter((item) => item.favId !== action.id);
+      const remainingFav = state.favorites.filter((item) => item.favId !== action.id);
       return {
         ...state,
-        fav: remainingFav,
+        favorites: remainingFav,
       };
     default:
       return state;

@@ -43,7 +43,7 @@ export const fetchProductsFailure = error => ({
 
 export const addToFav =( id, img, name, price)=> {
     return ( {type: ADD_TO_FAV,
-    id, name, price, img})
+    id,  price, name, img})
 }
 
 export const removeFromFav = id => {

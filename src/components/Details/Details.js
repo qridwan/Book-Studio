@@ -22,7 +22,7 @@ console.log("🚀 ~ file: Details.js ~ line 7 ~ Details ~ props", props)
           <ListGroupItem>Author: {book_author}</ListGroupItem>
         </ListGroup>
         <Card.Body>
-          <Button onClick={() => {addToFav(id, book_image, price, name)}}>Add to Favorite</Button>
+          <Button onClick={() => {addToFav(id, book_image, name, price)}}>Add to Favorite</Button>
         </Card.Body>
       </Card>
     </div>
