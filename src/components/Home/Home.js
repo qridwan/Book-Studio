@@ -5,7 +5,10 @@ import { Row } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../Redux/actions/FavAction";
+import BestSeller from "./BestSeller/BestSeller";
 import BookCard from "./BookCard";
+import DealofTheWeak from './DealsofTheWeak';
+import ContactUs from './ContactUs';
 
 const Home = (props) => {
   const { books } = props;
@@ -59,6 +62,14 @@ const Home = (props) => {
         />
         {data}
       </Row>
+      
+      {
+        books.length && <BestSeller books={books}/>
+      }
+      {
+        books.length && <DealofTheWeak books={books}/>
+      }
+      <ContactUs />
     </div>
   );
 };
