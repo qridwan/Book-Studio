@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from "react";
+
 import {
   ADD_TO_FAV,
   FETCH_PRODUCTS_BEGIN,

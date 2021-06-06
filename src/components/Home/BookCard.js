@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const BookCard = ({ info }) => {
   const { name, book_image, price, id } = info;
+  console.log(info);
   return (
     <Col md={3} className="mb-3">
       <Card style={{ width: "20rem" }}>

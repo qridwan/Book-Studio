@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import Navigation from './components/Navigation/Navigation';
 import Details from './components/Details/Details';
 import Favorites from './components/Favorites/Favorites';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -26,10 +27,14 @@ function App() {
           <Route path="/home/:id/detail">
             <Details />
           </Route>
+          <Route path="/home/search">
+            
+          </Route>
           <Route exact path="/">
             <Home />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
     </div>

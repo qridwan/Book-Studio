@@ -15,7 +15,7 @@ const Favorites = ({ favorites, removeFromFav }) => {
           ))}
         </Row>
       ) : (
-        <Row className="justify-content-center mt-5">
+        <Row className="justify-content-center mt-5" style={{minHeight: '1000px'}}>
           <Col md={6} className="text-center">
             {" "}
             <h2> Favorite Items is Empty! </h2>{" "}
