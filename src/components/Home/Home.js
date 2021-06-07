@@ -16,6 +16,8 @@ const Home = (props) => {
   const [data, setData] = useState([]);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0);
+  const [search, setSearch] = useState('');
+  const [searchData, setSearchData] = useState('');
 
   const getData = () => {
     const slice = books.slice(offset, offset + perPage);
@@ -26,14 +28,17 @@ const Home = (props) => {
     setPageCount(Math.ceil(books.length / perPage));
   };
 
+
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setOffset(selectedPage + 1);
   };
 
+  console.log(props);
+
   useEffect(() => {
     if (!books.length) {
-      props.dispatch(fetchProducts());
+      props.dispatch(fetchProducts(search));
     }
   }, [books.length, props]);
 
@@ -43,9 +48,39 @@ const Home = (props) => {
     }
   }, [offset, books.length]);
 
+
+  console.log(search, searchData);
+  const handleSubmit = () => {
+    try {
+      fetch(`https://609cd6ba04bffa001792d638.mockapi.io/books?search=${search}`)
+        .then(res => res.json())
+        .then(data => {
+          setSearchData(data)
+          if(data.length === 0){
+            alert('Nothing Found, Try again')
+          }
+        })
+        .catch(err => console.log(err));
+    } catch (error) {
+      alert(error.message);  
+    }
+    
+  }
+
   return (
     <div className="container">
       <Row className="justify-content-center mt-5">
+
+        <div className="search-bar text-center m-4">
+            <input className='p-2 mb-2 form-control' type="text" placeholder="Search Try: mya" onChange={(e)=>setSearch(e.target.value)}/>
+            <button className='btn btn-primary' onClick={() => handleSubmit()}>Search</button>
+        </div>
+
+        <div className="search-results">
+            {searchData &&
+              searchData.map(data => <BookCard info={data} />)
+            }
+        </div>
         
         <ReactPaginate
           previousLabel={"prev"}

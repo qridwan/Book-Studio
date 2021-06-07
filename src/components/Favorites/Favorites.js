@@ -7,7 +7,7 @@ import FavCard from "./FavCard";
 
 const Favorites = ({ favorites, removeFromFav }) => {
   return (
-    <div className="container">
+    <div className="container favorite-container">
       {favorites.length ? (
         <Row className="justify-content-center mt-5">
           {favorites.map((book, index) => (
@@ -32,3 +32,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
+
