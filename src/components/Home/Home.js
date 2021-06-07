@@ -5,7 +5,10 @@ import { Row } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
 import { connect } from "react-redux";
 import { fetchProducts } from "../../Redux/actions/FavAction";
+import BestSeller from "./BestSeller/BestSeller";
 import BookCard from "./BookCard";
+import DealofTheWeak from './DealsofTheWeak';
+import ContactUs from './ContactUs';
 
 const Home = (props) => {
   const { books } = props;
@@ -45,9 +48,12 @@ const Home = (props) => {
     }
   }, [offset, books.length]);
 
+<<<<<<< HEAD
   // useEffect(() => {
         
   // }, [setSearch]);
+=======
+>>>>>>> 82304733567b81f20e3e393d16ea595b5eec9e08
 
   console.log(search, searchData);
   const handleSubmit = () => {
@@ -72,7 +78,7 @@ const Home = (props) => {
       <Row className="justify-content-center mt-5">
 
         <div className="search-bar text-center m-4">
-            <input className='p-2 mb-2 form-control' type="text" placeholder="Search" onChange={(e)=>setSearch(e.target.value)}/>
+            <input className='p-2 mb-2 form-control' type="text" placeholder="Search Try: mya" onChange={(e)=>setSearch(e.target.value)}/>
             <button className='btn btn-primary' onClick={() => handleSubmit()}>Search</button>
         </div>
 
@@ -97,6 +103,14 @@ const Home = (props) => {
         />
         {data}
       </Row>
+      
+      {
+        books.length && <BestSeller books={books}/>
+      }
+      {
+        books.length && <DealofTheWeak books={books}/>
+      }
+      <ContactUs />
     </div>
   );
 };

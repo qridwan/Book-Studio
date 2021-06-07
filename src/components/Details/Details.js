@@ -12,7 +12,7 @@ const Details = (props) => {
   const clickedItem = books.find((book) => book.id === id);
   const { price, book_image, name, book_author } = clickedItem;
   return (
-    <div className="d-flex justify-content-center mt-5">
+    <div className="d-flex justify-content-center mt-5 mb-5">
       <Card style={{ width: "25rem" }}>
         <Card.Img variant="top" src={book_image} />
         <Card.Body>
