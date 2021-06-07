@@ -48,12 +48,6 @@ const Home = (props) => {
     }
   }, [offset, books.length]);
 
-<<<<<<< HEAD
-  // useEffect(() => {
-        
-  // }, [setSearch]);
-=======
->>>>>>> 82304733567b81f20e3e393d16ea595b5eec9e08
 
   console.log(search, searchData);
   const handleSubmit = () => {
